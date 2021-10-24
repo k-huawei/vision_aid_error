@@ -27,7 +27,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'My Vision Aid',
       theme: ThemeData(
-        primaryColor: AppTheme.colors.blue_grey,
+        fontFamily: 'SF Pro Display Regular',
+        primaryColor: Colors.red,
+        //primaryColor: AppTheme.colors.blue_grey,
         //primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),

@@ -52,7 +52,7 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Recgonizer'),
+        title: Text('Object Recognizer'),
       ),
       key: scaffoldKey,
       backgroundColor: Colors.black,
@@ -169,8 +169,7 @@ class _HomeViewState extends State<HomeView> {
   void resultsCallback(List<Recognition> results) {
     setState(() {
       this.results = results;
-      var newtext = _getObject(results);
-      //+  " to the " + CameraViewSingleton.relative_location
+      var newtext = _getObject(results) +  " to the " + CameraViewSingleton.relative_location;
       //print(results);
       if (newtext != null && newtext != this._newVoiceText) {
         this._newVoiceText = newtext;

@@ -318,140 +318,206 @@ class _SettingPageState extends State<SettingPage> {
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+     return Scaffold(
+       appBar: AppBar(
+         title: Text(widget.title),
+       ),
       body:
-      Expanded(
-        child: ListView(
-          physics: BouncingScrollPhysics(),
-          children: [
-            Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+      // Container(
+      //   height: 100.0,
+      //   child: ListView.builder(
+      //       scrollDirection: Axis.horizontal,
+      //       itemExtent: 100.0,
+      //       itemCount: temp.length,
+      //       itemBuilder: (BuildContext context, int index) {
+      //         return ListTile(
+      //             title: Text(temp[index]),
+      //             onTap: () {
+      //               print(temp[index]);
+      //             });
+      //       }),
+      // ),
+      //  Container(
+      //    child: Text('data'),
+      //  )
+
+       Center(
+         child: Column (
+             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
+              ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  itemCount: 5,
+                  itemExtent: 50,
+                  itemBuilder: (context, index) {
+                  }
+              ),
               Expanded(
-                  flex: 35,
-                  child: Container(
-                      margin: EdgeInsets.only(top: 10),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            margin: EdgeInsets.only(bottom: 15),
-                            child: CircleAvatar(
-                              backgroundColor: Colors.brown.shade800,
-                              radius: 55,
-                              child: const Text('KH'),
-                            ),
-                          ),
-                          // Container(
-                          //   margin: const EdgeInsets.only(bottom: 10),
-                          //   width: 150,
-                          //   alignment: Alignment.center,
-                          //   child: _enabled
-                          //       ? new TextFormField(controller: _name)
-                          //       : new FocusScope(
-                          //           node: new FocusScopeNode(),
-                          //           child: new TextFormField(
-                          //             textAlign: TextAlign.center,
-                          //             controller: _name,
-                          //             onChanged: (value) {
-                          //               setState(() {});
-                          //             },
-                          //             style: theme.textTheme.subhead.copyWith(
-                          //               color: Colors.black,
-                          //             ),
-                          //             decoration: new InputDecoration(
-                          //               hintText:
-                          //                   _enabled ? _name : 'Edit name',
-                          //             ),
-                          //           ),
-                          //         ),
-                          // ),
-                      Container(
-                        //margin: const EdgeInsets.only(bottom: 10),
-                        width: 150,
-                        alignment: Alignment.center,
-                        child: _enabled
-                            ? new TextFormField(controller: _name)
-                            : new FocusScope(
-                          node: new FocusScopeNode(),
-                          child: new TextFormField(
-                            textAlign: TextAlign.center,
-                            controller: _name,
-                            onChanged: (name_value) {
-                              setState(() => userSettings.name = name_value);
-                              _savedName();
-                            },
-                            // onSaved: (String value) {
-                            //   setState(() => userSettings.name = value);
-                            //   _savedName();
-                            //   // This optional block of code can be used to run
-                            //   // code when the user saves the form.
-                            // },
-                            // style: theme.textTheme.subhead.copyWith(
-                            //   color: Colors.black,
-                            // ),
-                            decoration: new InputDecoration(
-                              hintText:
-                              _enabled ? _name : userSettings.name ,
-                            ),
-                          ),
-                        ),
-                      ),
-                        ],
-                      )
-                      )),
-              Expanded(
-                  flex: 35,
-                  child: ListView(
-                      //scrollDirection: Axis.vertical,
-                      children: [
-                        //languages != null ? _languageDropDownSection() : Text("Language"),
-                        _buildSliders()
-                      ])),
+                flex:25,
+                child: Container (
+                  //height: 300,
+                margin: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+                child: ListTile(
+
+                leading: Container(
+                  height: 500,
+                  // width: 200,
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage(
+                        'assets/examplepfp.jpeg'),
+                  ),
+                ),
+                title: Text( "Kathy",
+
+                ),
+                //subtitle: Text("Kathy"),
+                // onTap:  () => ,//Navigator.push(
+                // //context,
+    //MaterialPageRoute(builder: (context) => ))
+    //),
+                trailing:  Icon(
+                Icons.arrow_forward_ios_rounded,
+                size: 24.0,
+
+                color: Colors.black54,
+    ),
+
+    ),
+                  // Expanded(
+                  //     flex: 35,
+                  //     child: Container(
+                  //         margin: EdgeInsets.only(top: 10),
+                  //         child: Column(
+                  //           mainAxisAlignment: MainAxisAlignment.center,
+                  //           children: [
+                  //             Container(
+                  //               margin: EdgeInsets.only(bottom: 15),
+                  //               child: CircleAvatar(
+                  //                 backgroundColor: Colors.brown.shade800,
+                  //                 radius: 55,
+                  //                 child: const Text('KH'),
+                  //               ),
+                  //             ),
+                  //             // Container(
+                  //             //   margin: const EdgeInsets.only(bottom: 10),
+                  //             //   width: 150,
+                  //             //   alignment: Alignment.center,
+                  //             //   child: _enabled
+                  //             //       ? new TextFormField(controller: _name)
+                  //             //       : new FocusScope(
+                  //             //           node: new FocusScopeNode(),
+                  //             //           child: new TextFormField(
+                  //             //             textAlign: TextAlign.center,
+                  //             //             controller: _name,
+                  //             //             onChanged: (value) {
+                  //             //               setState(() {});
+                  //             //             },
+                  //             //             style: theme.textTheme.subhead.copyWith(
+                  //             //               color: Colors.black,
+                  //             //             ),
+                  //             //             decoration: new InputDecoration(
+                  //             //               hintText:
+                  //             //                   _enabled ? _name : 'Edit name',
+                  //             //             ),
+                  //             //           ),
+                  //             //         ),
+                  //             // ),
+                  //         Container(
+                  //           //margin: const EdgeInsets.only(bottom: 10),
+                  //           width: 150,
+                  //           alignment: Alignment.center,
+                  //           child: _enabled
+                  //               ? new TextFormField(controller: _name)
+                  //               : new FocusScope(
+                  //             node: new FocusScopeNode(),
+                  //             child: new TextFormField(
+                  //               textAlign: TextAlign.center,
+                  //               controller: _name,
+                  //               onChanged: (name_value) {
+                  //                 setState(() => userSettings.name = name_value);
+                  //                 _savedName();
+                  //               },
+                  //               // onSaved: (String value) {
+                  //               //   setState(() => userSettings.name = value);
+                  //               //   _savedName();
+                  //               //   // This optional block of code can be used to run
+                  //               //   // code when the user saves the form.
+                  //               // },
+                  //               // style: theme.textTheme.subhead.copyWith(
+                  //               //   color: Colors.black,
+                  //               // ),
+                  //               decoration: new InputDecoration(
+                  //                 hintText:
+                  //                 _enabled ? _name : userSettings.name ,
+                  //               ),
+                  //             ),
+                  //           ),
+                  //         ),
+                  //           ],
+                  //         )
+                  //         )),
+                ),
+              ),
+                // Expanded(
+                //     flex: 30,
+                //     child: ListView(
+                //         //scrollDirection: Axis.vertical,
+                //         children: [
+                //           //languages != null ? _languageDropDownSection() : Text("Language"),
+                //           _buildSliders()
+                //         ])),
               Expanded(
                   flex: 30,
-                  child: Container(
-                    //width: double.infinity,
-                    margin:
-                        EdgeInsets.only(left: 15, right: 15, top: 5, bottom: 15),
-                    child: SizedBox(
-                        height: 125, //height of button
-                        width: 400, //width of button
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              primary:
-                                  Colors.blueAccent, //background color of button
-                              side: BorderSide(
-                                  width: 3,
-                                  color:
-                                      Colors.lightBlue), //border width and color
-                              elevation: 10, //elevation of button
-                              shape: RoundedRectangleBorder(
-                                  //to set border radius to button
-                                  borderRadius: BorderRadius.circular(30)),
-                              padding: EdgeInsets.all(
-                                  10) //content padding inside button
-                              ),
-                          onPressed: () async {
-                              //playAudio();
-                              //_listen();
-                              if (!_isListening) {
-                                startListening();
-                              } else {
-                                stopListening();
-                              }
-                          },
-                          child: Icon(_isListening ? Icons.mic : Icons.mic_none),
-                        )),
-                  )),
-            ],
-          ),
-        ],
-        ),
-      ),
+                  child:SingleChildScrollView(
+                      scrollDirection: Axis.vertical,
+                      child: Column(children: [
+                        //languages != null ? _languageDropDownSection() : Text(""),
+                        _buildSliders()
+                      ]))),
+
+
+
+                Expanded(
+                    flex: 40,
+                    child: Container(
+                      //width: double.infinity,
+                      margin:
+                          EdgeInsets.only(left: 15, right: 15, top: 5, bottom: 15),
+                      child: SizedBox(
+                          height: 125, //height of button
+                          width: 400, //width of button
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                primary:
+                                    Colors.blueAccent, //background color of button
+                                side: BorderSide(
+                                    width: 3,
+                                    color:
+                                        Colors.lightBlue), //border width and color
+                                elevation: 10, //elevation of button
+                                shape: RoundedRectangleBorder(
+                                    //to set border radius to button
+                                    borderRadius: BorderRadius.circular(30)),
+                                padding: EdgeInsets.all(
+                                    10) //content padding inside button
+                                ),
+                            onPressed: () async {
+                                //playAudio();
+                                //_listen();
+                                if (!_isListening) {
+                                  startListening();
+                                } else {
+                                  stopListening();
+                                }
+                            },
+                            child: Icon(_isListening ? Icons.mic : Icons.mic_none),
+                          )),
+                    )),
+              ],
+            ),
+       ),
+
       // floatingActionButton: new FloatingActionButton(
       //     child: new Icon(icon),
       //     onPressed: () {
@@ -505,7 +571,8 @@ class _SettingPageState extends State<SettingPage> {
           child: Text(
             "Volume",
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 20,
+              // fontWeight: FontWeight.bold,
               color: Colors.black,
               //fontWeight: FontWeight.bold
             ),
@@ -517,7 +584,8 @@ class _SettingPageState extends State<SettingPage> {
           child: Text(
             "Pitch",
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 20,
+              // fontWeight: FontWeight.bold,
               color: Colors.black,
               //fontWeight: FontWeight.bold
             ),
@@ -529,7 +597,8 @@ class _SettingPageState extends State<SettingPage> {
           child: Text(
             "Rate",
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 20,
+              // fontWeight: FontWeight.bold,
               color: Colors.black,
               //fontWeight: FontWeight.bold
             ),
@@ -551,7 +620,8 @@ class _SettingPageState extends State<SettingPage> {
       max: 1.0,
       divisions: 10,
       //label: 'Volume: $_value',
-      activeColor: Colors.grey,
+      activeColor: Colors.grey.shade600,
+      inactiveColor: Colors.grey.shade300,
     );
   }
 
@@ -566,12 +636,14 @@ class _SettingPageState extends State<SettingPage> {
       max: 2.0,
       divisions: 15,
       //label: "Pitch: $TTSsettings.newPitch,",
-      activeColor: Colors.grey,
+      activeColor: Colors.grey.shade600,
+      inactiveColor: Colors.grey.shade300,
     );
   }
 
   Widget _rate() {
     return Slider(
+
       value: TTSsettings.newRate,
       onChanged: (newRate) {
         setState(() => TTSsettings.newRate = newRate);
@@ -581,7 +653,8 @@ class _SettingPageState extends State<SettingPage> {
       max: 1.0,
       divisions: 10,
       //label: "Rate: $TTSsettings.newRate",
-      activeColor: Colors.grey,
+      activeColor: Colors.grey.shade600,
+      inactiveColor: Colors.grey.shade300,
     );
   }
 }

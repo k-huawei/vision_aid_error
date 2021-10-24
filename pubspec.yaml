@@ -56,6 +56,12 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  fonts:
+    - family: SF Pro Display Regular
+      fonts:
+        - asset: assets/FontsFree-Net-SFProDisplay-Regular.ttf
+
+
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/

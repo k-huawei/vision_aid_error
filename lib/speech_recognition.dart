@@ -141,24 +141,7 @@ class _SpeechRecognitionPageState extends State<SpeechRecognitionPage> {
         fontWeight: FontWeight.bold,
       ),
     ),
-    'Text Recognition': HighlightedWord(
-      onTap: () {
-        print('Text Recognition');
-      },
-      textStyle: TextStyle(
-        color: Colors.indigoAccent,
-        fontWeight: FontWeight.bold,
-      ),
-    ),
-    'Letter Recognition': HighlightedWord(
-      onTap: () {
-        print('Letter Recognition');
-      },
-      textStyle: TextStyle(
-        color: Colors.indigoAccent,
-        fontWeight: FontWeight.bold,
-      ),
-    ),
+
     'Settings': HighlightedWord(
       onTap: () {
         print('Settings');
@@ -176,7 +159,7 @@ class _SpeechRecognitionPageState extends State<SpeechRecognitionPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-            '${lastStatus} [${(_confidence * 100.0).toStringAsFixed(1)}%]'),
+            'Voice Assistant'
       ),
 
       //floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -192,12 +175,13 @@ class _SpeechRecognitionPageState extends State<SpeechRecognitionPage> {
       //child: Icon(_isListening ? Icons.mic : Icons.mic_none),
       //),
       //),
+      ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Expanded(
-              flex: 70,
+              flex: 50,
               child: Container(
                 child: SingleChildScrollView(
                   reverse: true,
@@ -207,6 +191,7 @@ class _SpeechRecognitionPageState extends State<SpeechRecognitionPage> {
                       text: _text,
                       words: words,
                       textStyle: TextStyle(
+                        fontFamily: "SF Pro Display Regular",
                         fontSize: 32.0,
                         color: Colors.black,
                         fontWeight: FontWeight.w400,
@@ -217,14 +202,15 @@ class _SpeechRecognitionPageState extends State<SpeechRecognitionPage> {
               ),
             ),
             Expanded(
-                flex: 30,
+                flex: 50,
                 child: Container(
                   //width: double.infinity,
                   margin:
                       EdgeInsets.only(left: 15, right: 15, top: 10, bottom: 35),
                   child: SizedBox(
-                      height: 125, //height of button
-                      width: 400, //width of button
+                      // height: 125, //height of button
+                      // width: 400, //width of button
+                    width: double.infinity,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             primary:

@@ -184,11 +184,11 @@ class Classifier {
         Rect transformedRect = imageProcessor.inverseTransformRect(
             locations[i], image.height, image.width);
 
-        // x_coord = transformedRect.center.dx;
+        x_coord = transformedRect.center.dx;
         //y_coord = transformedRect.center.dy;
 
         print(i.toString() + "/" + resultsCount.toString() + "-" + label + ":" +
-            transformedRect.center.toString() + "area:" + "" );   //CameraViewSingleton.relative_location
+            transformedRect.center.toString() + "location:" + "" + CameraViewSingleton.relative_location );
         recognitions.add(
           Recognition(i, label, score, transformedRect),
         );
@@ -197,20 +197,20 @@ class Classifier {
 
     }
 
-    // left_threshold = 0.25*CameraViewSingleton.screenSize.width;
-    // right_threshold  = 0.75*CameraViewSingleton.screenSize.width;
-    //
-    // if (0 < x_coord && x_coord <= left_threshold) {
-    //   CameraViewSingleton.relative_location = "left";
-    // }
-    //
-    // if ( left_threshold < x_coord && x_coord < right_threshold) {
-    //   CameraViewSingleton.relative_location = "center";
-    // }
-    //
-    // if ( right_threshold <= x_coord && x_coord < CameraViewSingleton.screenSize.width) {
-    //   CameraViewSingleton.relative_location = "right";
-    // }
+    left_threshold = 0.25*CameraViewSingleton.screenSize.width;
+    right_threshold  = 0.75*CameraViewSingleton.screenSize.width;
+
+    if (0 < x_coord && x_coord <= left_threshold) {
+      CameraViewSingleton.relative_location = "left";
+    }
+
+    if ( left_threshold < x_coord && x_coord < right_threshold) {
+      CameraViewSingleton.relative_location = "center";
+    }
+
+    if ( right_threshold <= x_coord && x_coord < CameraViewSingleton.screenSize.width) {
+      CameraViewSingleton.relative_location = "right";
+    }
 
     var predictElapsedTime =
         DateTime.now().millisecondsSinceEpoch - predictStartTime;
