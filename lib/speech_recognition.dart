@@ -6,7 +6,9 @@ import 'package:speech_to_text/speech_recognition_result.dart';
 import 'package:speech_to_text/speech_recognition_error.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:vision_aid/ui/home_view.dart';
+import 'app_theme.dart';
 import 'settings.dart';
+import 'colors.dart';
 
 class SpeechRecognitionPage extends StatefulWidget {
   SpeechRecognitionPage({Key key, this.title}) : super(key: key);
@@ -19,7 +21,7 @@ class _SpeechRecognitionPageState extends State<SpeechRecognitionPage> {
   bool _isListening = false;
   String _text = 'Press the button and start speaking';
   bool _hasSpeech = false;
-
+  //enum WhyFarther { harder, smarter, selfStarter, tradingCharter }
   String lastError = "";
   String lastStatus = "";
   String _currentLocaleId = '';
@@ -154,13 +156,43 @@ class _SpeechRecognitionPageState extends State<SpeechRecognitionPage> {
   };
 
   double _confidence = 1.0;
+
+  // const IconThemeData({this.color, double? opacity, this.size}) : _opacity = opacity;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: AppTheme.colors.blue_grey,
         title: Text(
             'Voice Assistant'
-      ),
+      ),// This is the type used by the popup menu below.
+
+
+// This menu button widget updates a _selection field (of type WhyFarther,
+// not shown here).
+//           PopupMenuButton<WhyFarther>(
+//           onSelected: (WhyFarther result) { setState(() { _selection = result; }); },
+//       itemBuilder: (BuildContext context) => <PopupMenuEntry<WhyFarther>>[
+//         const PopupMenuItem<WhyFarther>(
+//           value: WhyFarther.harder,
+//           child: Text('Working a lot harder'),
+//         ),
+//         const PopupMenuItem<WhyFarther>(
+//           value: WhyFarther.smarter,
+//           child: Text('Being a lot smarter'),
+//         ),
+//         const PopupMenuItem<WhyFarther>(
+//           value: WhyFarther.selfStarter,
+//           child: Text('Being a self-starter'),
+//         ),
+//         const PopupMenuItem<WhyFarther>(
+//           value: WhyFarther.tradingCharter,
+//           child: Text('Placed in charge of trading charter'),
+//         ),
+//       ],
+//     )
 
       //floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       //floatingActionButton: AvatarGlow(
@@ -186,7 +218,7 @@ class _SpeechRecognitionPageState extends State<SpeechRecognitionPage> {
                 child: SingleChildScrollView(
                   reverse: true,
                   child: Container(
-                    padding: const EdgeInsets.fromLTRB(30.0, 30.0, 30.0, 150.0),
+                    padding: const EdgeInsets.fromLTRB(50.0, 30.0, 30.0, 150.0),
                     child: TextHighlight(
                       text: _text,
                       words: words,
@@ -201,8 +233,9 @@ class _SpeechRecognitionPageState extends State<SpeechRecognitionPage> {
                 ),
               ),
             ),
+
             Expanded(
-                flex: 50,
+                flex: 70,
                 child: Container(
                   //width: double.infinity,
                   margin:
@@ -214,15 +247,12 @@ class _SpeechRecognitionPageState extends State<SpeechRecognitionPage> {
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             primary:
-                                Colors.blueAccent, //background color of button
-                            side: BorderSide(
-                                width: 3,
-                                color:
-                                    Colors.lightBlue), //border width and color
+                                Colors.blueGrey.shade300, //background color of button
+                            //border width and color
                             elevation: 10, //elevation of button
                             shape: RoundedRectangleBorder(
                                 //to set border radius to button
-                                borderRadius: BorderRadius.circular(30)),
+                                borderRadius: BorderRadius.circular(200)),
                             padding: EdgeInsets.all(
                                 20) //content padding inside button
                             ),
@@ -235,10 +265,20 @@ class _SpeechRecognitionPageState extends State<SpeechRecognitionPage> {
                             stopListening();
                           }
                         },
-                        child: Icon(_isListening ? Icons.mic : Icons.mic_none),
+
+
+
+                        child:
+
+                         Icon(
+                           _isListening ? Icons.mic : Icons.mic_none,
+                           size: 70.0,
+
+                        // IconData),
                       )),
                 )),
-          ],
+            ),
+        ],
         ),
       ),
     );

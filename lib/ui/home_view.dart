@@ -6,6 +6,7 @@ import 'package:vision_aid/ui/box_widget.dart';
 import 'package:vision_aid/ui/camera_view_singleton.dart';
 import 'package:volume_watcher/volume_watcher.dart';
 import 'package:vision_aid/speech_singleton.dart';
+import '../app_theme.dart';
 import 'camera_view.dart';
 import 'package:vision_aid/tflite/classifier.dart';
 /// [HomeView] stacks [CameraView] and [BoxWidget]s with bottom sheet for stats
@@ -52,10 +53,11 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: AppTheme.colors.blue_grey,
         title: Text('Object Recognizer'),
       ),
       key: scaffoldKey,
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.black87,
       body: Stack(
         children: <Widget>[
           // Camera View
@@ -72,11 +74,11 @@ class _HomeViewState extends State<HomeView> {
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                         primary: _hasStarted
-                            ? Colors.red
-                            : Colors.blue, //background color of button
+                            ? Colors.red.shade300
+                            : Colors.blue.shade300, //background color of button
                         side: BorderSide(
-                            width: 3,
-                            color: Colors.brown), //border width and color
+                            width: 2,
+                            color: Colors.grey), //border width and color
                         elevation: 10, //elevation of button
                         shape: RoundedRectangleBorder(
                             //to set border radius to button
@@ -97,7 +99,8 @@ class _HomeViewState extends State<HomeView> {
                     },
                     child: _hasStarted
                         ? Text(_newVoiceText)
-                        : Text(_newVoiceText))),
+                        : Text(_newVoiceText))
+            ),
           ),
 
           Align(

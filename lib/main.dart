@@ -28,8 +28,8 @@ class MyApp extends StatelessWidget {
       title: 'My Vision Aid',
       theme: ThemeData(
         fontFamily: 'SF Pro Display Regular',
-        primaryColor: Colors.red,
-        //primaryColor: AppTheme.colors.blue_grey,
+        //primaryColor: Colors.red,
+        primaryColor: AppTheme.colors.blue_grey,
         //primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
